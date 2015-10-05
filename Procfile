@@ -1,1 +1,1 @@
-web: python BROApi.py
+web: gunicorn bro:app --log-file=-
