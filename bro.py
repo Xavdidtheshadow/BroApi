@@ -14,6 +14,7 @@ words = {
         'brotha',
         'brother',
         'broseph',
+        'bruh',
         'bud',
         'buddy',
         'compadre',
@@ -21,9 +22,11 @@ words = {
         'dood',
         'dude',
         'guy',
+        'hermano',
         'homeboy',
         'homie',
         'mate',
+        'm8',
         'man',
         'pal'
     ], 
@@ -62,10 +65,9 @@ words = {
 @app.route('/')
 def root():
     return jsonify({'message': 'try /bro, /broette, or /nobro instead'})
-    
-@app.route('/<string:word>')
+
+@app.route('/<word>', strict_slashes=False)
 def bro_me(word):
-    logging.warning("word is %s" % word)
     if word in words:
         return jsonify({'bro': random.choice(words[word])})
     else:
