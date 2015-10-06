@@ -16,12 +16,12 @@ def broMe():
     return jsonify({'bro': random.choice(browords)})
 
 @app.route('/broette', methods=['GET'])
-def broMe():
-    return jsonify({'bro': random.choice(broettewords)})
+def broetteMe():
+    return jsonify({'broette': random.choice(broettewords)})
 
 @app.route('/nobro', methods=['GET'])
-def broMe():
-    return jsonify({'bro': random.choice(nowords)})
+def nobroMe():
+    return jsonify({'nobro': random.choice(nowords)})
 
 @app.errorhandler(404)
 def four04_error(error):
