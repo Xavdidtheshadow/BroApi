@@ -3,15 +3,25 @@ import random
 
 app = Flask(__name__)
 
-words = ['amigo','bra','brah','bro','broski','brotha','brother','bud','buddy','compadre','dawg','dude','guy','homeboy','homie','mate','pal']
+browords = ['amigo','bra','brah','bro','broski','brotha','brother','broseph','bud','buddy','compadre','dawg','dood','dude','guy','homeboy','homie','mate','man','pal']
+broettewords = ['amiga','babe','bby','bbygurl','chica','chick','fembro','gal','girl','girlbro','girlfriend','girlie','gal','homegirl','lady','sister','sista','woman']
+nowords = ['associate','bff','chum','consort','fam','friend','friendo','pal']
 
 @app.route('/', methods=['GET'])
 def root():
-    return jsonify({'message': 'try /bro instead'})
+    return jsonify({'message': 'try /bro, /broette, or /nobro instead'})
 
 @app.route('/bro', methods=['GET'])
 def broMe():
-    return jsonify({'bro': random.choice(words)})
+    return jsonify({'bro': random.choice(browords)})
+
+@app.route('/broette', methods=['GET'])
+def broetteMe():
+    return jsonify({'broette': random.choice(broettewords)})
+
+@app.route('/nobro', methods=['GET'])
+def nobroMe():
+    return jsonify({'nobro': random.choice(nowords)})
 
 @app.errorhandler(404)
 def four04_error(error):
